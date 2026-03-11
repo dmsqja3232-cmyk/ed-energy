@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.rathontech.com)",
+      "Bash(pip install:*)",
+      "Bash(python3 -c \"\nimport fitz\ndoc = fitz.open\\('C:/Users/pi_node/Desktop/이디에너지/이디에너지.pdf'\\)\nprint\\(f'Pages: {doc.page_count}'\\)\nfor i in range\\(min\\(doc.page_count, 20\\)\\):\n    page = doc[i]\n    text = page.get_text\\(\\)\n    print\\(f'\\\\n=== Page {i+1} ==='\\)\n    print\\(text[:2000]\\)\n\" 2>&1)",
+      "Bash(python -c \"import fitz; doc = fitz.open\\('C:/Users/pi_node/Desktop/이디에너지/이디에너지.pdf'\\); print\\('Pages:', doc.page_count\\); [print\\(f'=== Page {i+1} ===\\\\n', doc[i].get_text\\(\\)[:2000]\\) for i in range\\(min\\(doc.page_count, 20\\)\\)]\" 2>&1)",
+      "Bash(python -c \"\nimport fitz, os\ndoc = fitz.open\\('C:/Users/pi_node/Desktop/이디에너지/이디에너지.pdf'\\)\nout = 'C:/Users/pi_node/Desktop/이디에너지/pdf_images'\nos.makedirs\\(out, exist_ok=True\\)\nfor i in range\\(doc.page_count\\):\n    page = doc[i]\n    pix = page.get_pixmap\\(dpi=150\\)\n    pix.save\\(f'{out}/page_{i+1:02d}.png'\\)\n    print\\(f'Saved page {i+1}'\\)\nprint\\('Done'\\)\n\" 2>&1)"
+    ]
+  }
+}
